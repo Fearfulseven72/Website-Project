@@ -1,28 +1,231 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+.ring i:nth-child(1) {
+    border-radius: 38% 62% 62% 37% / 41% 44% 56% 59%;
+    animation: animate 6s linear infinite;
+}
+.ring:hover i:nth-child(1) {
+    border: 6px solid lawngreen;
+    filter:drop-shadow(0 0 20px lawngreen);
+}
+.ring i:nth-child(2) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate 4s linear infinite;
+}
+.ring:hover i:nth-child(2) {
+    border: 6px solid rgb(37, 179, 84);
+    filter:drop-shadow(0 0 20px rgb(37, 179, 84));
+}
+.ring i:nth-child(3) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate 10s linear infinite;
+}
+.ring:hover i:nth-child(3) {
+    border: 6px solid rgb(34, 101, 41);
+    filter:drop-shadow(0 0 20px rgb(34, 101, 41));
+}
+.ring i:nth-child(4) {
+    border-radius: 41% 36% 56% 84% / 25% 62% 63% 37%;
+    animation: animate 6s linear infinite;
+}
+.ring:hover i:nth-child(4) {
+    border: 6px solid rgb(187, 248, 193);
+    filter:drop-shadow(0 0 20px rgb(187, 248, 193));
+}
+.ring i:nth-child(5) {
+    border-radius: 41% 36% 56% 84% / 25% 62% 63% 37%;
+    animation: animate 8s linear infinite;
+}
+.ring:hover i:nth-child(5) {
+    border: 6px solid rgb(138, 10, 123);
+    filter:drop-shadow(0 0 20px rgb(138, 10, 123));
+}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle, #2e154e 0%, #000000 100%);
+}
+.ring{
+  position:relative;
+  width:260px;
+  height:260px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
+.ring i{
+  position:absolute;
+  inset:0;
+  border:1px solid #677d61; 
+  box-sizing:border-box;
+  transition:0.35s;
 }
 
-main {
-    padding: 20px;
-    text-align: center;
+/*ANIMATION*/
+@keyframes animate{
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.ring:hover i:nth-child(1){
+  border:3px solid lawngreen;
+  filter:drop-shadow(0 0 20px lawngreen);
+  animation-duration:2s; 
+}
+.ring:hover i:nth-child(2){
+  border:8px solid rgb(37,179,84);
+  filter:drop-shadow(0 0 20px rgb(37,179,84));
+  animation-duration:1.5s;
+}
+.ring:hover i:nth-child(3){
+  border:2px solid rgb(34,101,41);
+  filter:drop-shadow(0 0 20px rgb(34,101,41));
+  animation-duration:3s;
+}
+.ring:hover i:nth-child(4){
+  border: 2.5px solid rgb(229, 235, 229);
+  filter:drop-shadow(0 0 20px rgb(229, 235, 229));
+  animation-duration:2s;
+}
+.ring:hover i:nth-child(5){
+  border:4px solid rgb(138, 10, 123);
+  filter:drop-shadow(0 0 20px rgb(138, 10, 123));
+  animation-duration:3.5s;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/*TEXT*/
+.click {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  font-size:1em;
+  font-weight:100;
+  padding:10px 20px;
+  border-radius:8px;
+  transition:0.35s;
+  text-align: center;
+  color: aliceblue;
+}
+.dare{
+  transition: 0.3s;
+}
+.ring:hover .dare{
+  color: rgb(197, 13, 13);
+  text-shadow:
+    0 0 5px rgb(171, 48, 48),
+}
+
+/* shared layout */
+.top_bar{
+  position: sticky; top: 0;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 18px;
+  backdrop-filter: blur(10px);
+}
+.brand{ text-decoration:none; font-weight:700; }
+.nav{ display:flex; gap:12px; }
+.nav a{ text-decoration:none; opacity:.85; }
+.nav a[aria-current="page"]{ opacity:1; text-decoration: underline; }
+.page{
+  min-height: calc(100vh - 60px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 24px;
+}
+.card{
+  width:min(900px, 100%);
+  border-radius: 22px;
+  padding: 22px;
+}
+/* about page bits */
+.profile__top{ display:flex; gap:16px; align-items:center; }
+.avatar{ width:62px; height:62px; border-radius:16px; }
+.profile__grid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.tile{
+  display:block;
+  padding: 14px;
+  border-radius: 16px;
+  text-decoration:none;
+}
+.tile__label{ display:block; font-weight:700; }
+.tile__hint{ display:block; opacity:.8; font-size:.9rem; }
+/* dashboard */
+.dashGrid{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.panel{ border-radius: 18px; padding: 14px; }
+.panel__title{ margin:0 0 6px; }
+.progressBar{ height: 10px; border-radius: 999px; overflow:hidden; }
+.progressBar__fill{ height:100%; border-radius: 999px; }
+
+.portal-link{
+  display:inline-block;
+  text-decoration:none;
+}
+.portal-link .ring{
+  cursor:pointer;
+}
+
+/* Portal open animation */
+.ring.opening{
+  animation: portalOpen 900ms ease-in forwards;
+}
+@keyframes portalOpen{
+  0%{
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 20px rgba(0,255,160,0.6));
+  }
+  60%{
+    transform: translate(-50%, -50%) scale(1.6);
+    filter: drop-shadow(0 0 45px rgba(0,255,160,0.9));
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(8);
+    filter: drop-shadow(0 0 120px rgba(0,255,160,1));
+  }
+}
+/* Optional: make text fade during opening */
+.ring.opening .click{
+  animation: fadeOut 500ms ease-in forwards;
+}
+@keyframes fadeOut{
+  to{ opacity:0; transform: translate(-50%, -50%) scale(0.98); }
+}
+.ring{
+  transform-origin: center;
+}
+.ring.opening{
+  animation: portalOpen 900ms ease-in forwards;
+}
+@keyframes portalOpen{
+  0%   { transform: scale(1);   filter: drop-shadow(0 0 20px rgba(0,255,160,0.6)); }
+  60%  { transform: scale(1.6); filter: drop-shadow(0 0 45px rgba(0,255,160,0.9)); }
+  100% { transform: scale(8);   filter: drop-shadow(0 0 120px rgba(0,255,160,1)); }
+}
+.ring.opening i{
+  animation-duration: 0.6s !important;
+}
+body.portal-flash::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,255,160,0.10);
+  pointer-events:none;
+  animation: flash 350ms ease-out forwards;
+}
+@keyframes flash{
+  0%{ opacity:0; }
+  40%{ opacity:1; }
+  100%{ opacity:0; }
 }
