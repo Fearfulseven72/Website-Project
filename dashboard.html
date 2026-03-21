@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | Aspen Stalliviere</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <main class="phone">
+    <section class="shell glass">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <a class="initials glow" href="index.html" aria-label="Profile initials">AMS</a>
+        <nav class="pill-nav" aria-label="Primary">
+          <a class="pill glow active" href="#home">Home</a>
+          <a class="pill glow" href="#projects">Projects</a>
+          <a class="pill glow" href="#resume">Resume</a>
+        </nav>
+        <button class="menu-btn glow" id="menuBtn" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <!--3D Rotating Image Gallery-->
+      <div class="box">
+          <span style="--i:1;"><img src="https://i.pinimg.com/736x/c9/5d/85/c95d85e4068956d75159acb9d7e5bd02.jpg" alt="Motorcycle"></span>
+          <span style="--i:2;"><img src="https://i.pinimg.com/736x/44/de/65/44de653883eca1896ac9862989edeaa0.jpg" alt="Formula 1"></span>
+          <span style="--i:3;"><img src="https://cdn.artphotolimited.com/images/61f00cd0bd40b803239484a5/300x300/marc-marquez-virage-5-barcelone.jpg" alt="MotoGP"></span>
+          <span style="--i:4;"><img src="https://earlewrites.com/wp-content/uploads/2021/10/higblood-henry.jpg" alt="Writing"></span>
+          <span style="--i:5;"><img src="https://wallpapercave.com/wp/wp4840677.png" alt="Christian"></span>
+      </div>
+
+      <!-- NAME + BIO -->
+      <section class="identity">
+        <h1 class="name">Aspen<br/>Stalliviere</h1>
+        <p class="bio">Bio</p>
+      </section>
+      <div class="divider"></div>
+
+      <!-- SLIDER -->
+      <section class="slider">
+        <button class="arrow glow glass-btn" data-dir="-1" aria-label="Previous">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="slides glass" aria-label="Project slider">
+          <div class="track" id="track">
+
+            <!-- Slide 1 -->
+            <article class="slide" id="projects">
+              <div class="stack">
+                <div class="stack-card back"></div>
+                <div class="stack-card mid"></div>
+                <div class="stack-card front">
+                  <div class="front-inner">
+                    <div class="thumb"></div>
+                    <div class="lines"> Stopwatch, timer, and clock UI concepts.
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="slide">
+              <div class="stack">
+                <div class="stack-card back"></div>
+                <div class="stack-card mid"></div>
+                <div class="stack-card front">
+                  <div class="front-inner">
+                    <div class="thumb alt"></div>
+                    <div class="lines"> Box of Light
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="slide">
+              <div class="stack">
+                <div class="stack-card back"></div>
+                <div class="stack-card mid"></div>
+                <div class="stack-card front">
+                  <div class="front-inner">
+                    <div class="thumb alt2"></div>
+                    <div class="lines">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="dots" id="dots" aria-label="Slider dots"></div>
+        </div>
+        <button class="arrow glow glass-btn" data-dir="1" aria-label="Next">
+          <span aria-hidden="true">›</span>
+        </button>
+      </section>
+      <div class="divider soft"></div>
+
+      <!-- FREELANCING / COMMISSIONS + FEATURE IMAGE -->
+      <section class="lower" id="resume">
+        <article class="freelance glass panel glow">
+          <h2>Freelancing</h2>
+          <p>
+            Commission work, UI builds, landing pages, or branding assets.
+            Drop a message and I`ll reply with availability + pricing.
+          </p>
+          <ul>
+            <li>Web UI / Front-end</li>
+            <li>Branding / Logos</li>
+            <li>Writing / Editing</li>
+          </ul>
+          <a class="cta glow" href="#contact">Contact me →</a>
+        </article>
+        <article class="feature glass panel glow">
+          <div class="feature-img" aria-hidden="true"></div>
+          <div class="feature-lines" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </article>
+      </section>
+
+      <!-- BOTTOM CONTACT ICONS -->
+      <footer class="contact glass">
+        <a class="social glow" href="mailto:stalliviereaspen101@gmail.com" aria-label="Gmail">
+          <span class="ico">G</span>
+        </a>
+        <a class="social glow" href="#" aria-label="Instagram">
+          <span class="ico">◎</span>
+        </a>
+        <a class="social glow" href="#" aria-label="Facebook">
+          <span class="ico">f</span>
+        </a>
+        <a class="social glow" href="#" aria-label="Snapchat">
+          <span class="ico">👻</span>
+        </a>
+      </footer>
+    </section>
+
+    <!-- SIMPLE MENU DRAWER (optional) -->
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-sheet glass">
+        <div class="drawer-head">
+          <strong>Menu</strong>
+          <button class="x glow" id="closeDrawer" aria-label="Close">×</button>
+        </div>
+        <a class="drawer-link glow" href="#home">Home</a>
+        <a class="drawer-link glow" href="#projects">Projects</a>
+        <a class="drawer-link glow" href="#resume">Resume</a>
+        <a class="drawer-link glow" href="#contact">Contact</a>
+      </div>
+    </aside>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

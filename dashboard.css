@@ -1,0 +1,482 @@
+:root{
+  /* Your palette */
+  --ink: #d6d7db;
+  --muted: rgba(110, 123, 207, 0.72);
+  --c1:#35495e;   
+  --c2:#a89146;   
+  --c3:#29c936;   
+  --c4:#1da840;   
+  --glass: rgba(34, 37, 56, 0.348);
+  --stroke: rgba(25, 5, 176, 0.14);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.641);
+  --r: 24px;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{ height:100%; width:100%; }
+
+body{
+  margin:0;
+  height: auto;
+  color:var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    linear-gradient(to bottom, #1f2761, #010912);
+}
+
+/* phone frame area */
+.phone{
+  width:100%;
+  max-width: 1250px;
+  margin:0 auto;
+ 
+}
+.glass{
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--r);
+}
+.shell{
+  padding: 14px;
+}
+
+/* Glow behavior (your “glows when mouse hovers”) */
+.glow{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+}
+.glow:hover, .glow:focus-visible{
+  transform: translateY(-1px);
+  border-color: rgba(70,73,168,.60);
+  box-shadow:
+    0 0 0 1px rgba(70,73,168,.35),
+    0 16px 55px rgba(0,0,0,.55),
+    0 0 28px rgba(70,73,168,.25),
+    0 0 18px rgba(44,91,56,.18);
+  outline:none;
+}
+
+/* TOP BAR matches your paper */
+.top_bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+}
+.initials{
+  width: 54px;
+  height: 44px;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: .8px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+}
+.pill-nav{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex: 1;
+}
+.pill{
+  text-decoration:none;
+  color: var(--ink);
+  font-size: 13px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.16);
+}
+.pill.active{
+  background: linear-gradient(90deg, rgba(70,73,168,.40), rgba(44,91,56,.28));
+  border-color: rgba(70,73,168,.55);
+}
+.menu-btn{
+  width: 54px;
+  height: 44px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+  color: var(--ink);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+.hamburger{
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  position:relative;
+}
+.hamburger::before,.hamburger::after{
+  content:"";
+  position:absolute;
+  left:0; 
+  right:0;
+  height:2px;
+  background: var(--ink);
+  border-radius:2px;
+}
+.hamburger::before{ top:-6px; }
+.hamburger::after{ top:6px; }
+
+/* NAME + BIO centered like your sketch */
+.identity{
+  text-align:center;
+  padding: 14px 10px 10px;
+}
+.name{
+  margin: 12px 0 4px;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing:.3px;
+}
+.bio{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Dividers (the long horizontal lines you drew) */
+.divider{
+  height: 1px;
+  margin: 12px 6px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+}
+.divider.soft{
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+}
+
+/* SLIDER section: arrows outside, glass in the middle */
+.slider{
+  display:grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items:center;
+  gap: 10px;
+  padding: 4px 0 6px;
+}
+.glass-btn{
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.16);
+  color: var(--ink);
+  border-radius: 16px;
+}
+.arrow{
+  width: 42px;
+  height: 42px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  font-size: 22px;
+}
+.slides{
+  padding: 14px 12px 10px;
+  overflow:hidden;
+}
+
+/* track sliding animation */
+.track{
+  display:flex;
+  gap: 14px;
+  transform: translateX(0);
+  transition: transform .45s cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+}
+.slide{
+  flex: 0 0 100%;
+  display:flex;
+  justify-content:center;
+}
+
+/* the “stacked cards” look from your drawing */
+.stack{
+  position:relative;
+  width: min(340px, 100%);
+  height: 170px;
+}
+.stack-card{
+  position:absolute;
+  inset:0;
+  border-radius: 22px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.16);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+.stack-card.back{
+  transform: translateX(-18px) translateY(8px) scale(.96);
+  opacity:.45;
+}
+.stack-card.mid{
+  transform: translateX(18px) translateY(8px) scale(.96);
+  opacity:.55;
+}
+.stack-card.front{
+  background:
+    radial-gradient(260px 140px at 20% 30%, rgba(70,73,168,.22), transparent 55%),
+    radial-gradient(260px 140px at 80% 70%, rgba(44,91,56,.18), transparent 60%),
+    rgba(0,0,0,.18);
+}
+
+/* placeholder content inside the front card */
+.front-inner{
+  height:100%;
+  padding: 14px;
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 14px;
+  align-items:center;
+}
+.thumb{
+  height: 110px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  background:
+    linear-gradient(135deg, rgba(70,73,168,.38), rgba(56,53,94,.35)),
+    rgba(0,0,0,.12);
+}
+.thumb.alt{
+  background: linear-gradient(135deg, rgba(44,91,56,.34), rgba(20,66,24,.35));
+}
+.thumb.alt2{
+  background: linear-gradient(135deg, rgba(199,160,106,.28), rgba(70,73,168,.26));
+}
+.lines{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.lines span{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.lines span:nth-child(2){ width: 86%; }
+.lines span:nth-child(3){ width: 72%; }
+
+/* dots like a subtle UI detail */
+.dots{
+  display:flex;
+  justify-content:center;
+  gap: 8px;
+  padding-top: 10px;
+}
+.dot{
+  width:8px; height:8px;
+  border-radius: 99px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.10);
+  cursor:pointer;
+}
+.dot.active{
+  background: rgba(70,73,168,.75);
+  border-color: rgba(70,73,168,.75);
+}
+
+/* LOWER section like your left text + right box */
+.lower{
+  display:grid;
+  grid-template-columns: 1.3fr .95fr;
+  gap: 12px;
+}
+.panel{
+  border-radius: 22px;
+  padding: 14px;
+}
+.freelance h2{
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.freelance p{
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.freelance ul{
+  margin: 0 0 12px 18px;
+  padding: 0;
+  color: rgba(233,236,255,.84);
+}
+.cta{
+  display:inline-block;
+  text-decoration:none;
+  color: #0a0d1a;
+  background: linear-gradient(90deg, rgba(70,73,168,.95), rgba(44,91,56,.85));
+  padding: 10px 12px;
+  border-radius: 16px;
+  font-weight: 750;
+  border: 1px solid rgba(255,255,255,.14);
+}
+.feature{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+.feature-img{
+  height: 128px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.16);
+  background:
+    radial-gradient(140px 120px at 25% 35%, rgba(70,73,168,.32), transparent 60%),
+    radial-gradient(140px 120px at 75% 75%, rgba(44,91,56,.28), transparent 62%),
+    rgba(0,0,0,.14);
+}
+.feature-lines{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.feature-lines span{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.feature-lines span:nth-child(2){ width: 90%; }
+.feature-lines span:nth-child(3){ width: 76%; }
+.feature-lines span:nth-child(4){ width: 60%; }
+
+/* bottom contact icons row */
+.contact{
+  margin-top: 14px;
+  padding: 12px;
+  display:flex;
+  justify-content:space-around;
+  gap: 10px;
+  border-radius: 22px;
+}
+.social{
+  width: 52px;
+  height: 46px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.16);
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  color: var(--ink);
+}
+.ico{
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* Drawer */
+.drawer{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.55);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .2s ease;
+}
+.drawer.open{
+  opacity:1;
+  pointer-events:auto;
+}
+.drawer-sheet{
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%) translateY(18px);
+  bottom: 22px;
+  width: min(520px, calc(100% - 24px));
+  padding: 12px;
+  border-radius: 20px;
+  transition: transform .25s ease;
+}
+.drawer.open .drawer-sheet{
+  transform: translateX(-50%) translateY(0);
+}
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 6px 6px 10px;
+}
+.x{
+  width: 44px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.16);
+  color: var(--ink);
+  cursor:pointer;
+}
+.drawer-link{
+  display:block;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 16px;
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.14);
+  color: var(--ink);
+  text-decoration:none;
+}
+
+/* Responsive: if very narrow, keep it clean */
+@media (max-width: 360px){
+  .pill-nav{ gap:8px; }
+  .pill{ padding: 8px 10px; font-size: 12px; }
+  .lower{ grid-template-columns: 1fr; }
+}
+
+/* 3D rotating gallery */
+* {
+  margin:0; 
+  padding:0;
+  box-sizing:border-box;
+}
+.body_gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('path/to/your/image.jpg');
+  background-size: cover;
+}
+.box{
+  position: relative;
+  width: 120px;
+  height: 160px;
+  transform-style: preserve-3d;
+  animation: ANIMATE 20s linear infinite;
+  margin: 60px auto 20px auto;
+}
+@keyframes ANIMATE {
+  0%{
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100%{
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+:root{
+  --radius: 150px;
+}
+.box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(var(--radius ));
+  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, rgba(32, 75, 55, 0.267));
+}
+.box span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+}
+
